@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Define an attached DependencyProperty (Silverlight)</Title>
+            <Shortcut>propas</Shortcut>
+            <Description>Code snippet for an attached property using DependencyProperty as the backing store</Description>
+            <Author>Fons Sonnemans</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>type</ID>
+                    <ToolTip>Property Type</ToolTip>
+                    <Default>object</Default>
+                </Literal>
+                <Literal>
+                    <ID>property</ID>
+                    <ToolTip>Property Name</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>ownerclass</ID>
+                    <ToolTip>The owning class of this Property. Typically the class that it is declared in.</ToolTip>
+                    <Default>ClassNamePlaceholder</Default>
+                    <Function>ClassName()</Function>
+                </Literal>
+                <Literal>
+                    <ID>defaultvalue</ID>
+                    <ToolTip>The default value for this property.</ToolTip>
+                    <Default>null</Default>
+                </Literal>
+                <Literal>
+                    <ID>targetclass</ID>
+                    <ToolTip>The target class for this property.</ToolTip>
+                    <Default>FrameworkElement</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[
+#region $property$ Attached Property
+
+/// <summary> 
+/// Identifies the $property$ attachted property. This enables animation, styling, binding, etc...
+/// </summary>
+public static readonly DependencyProperty $property$Property =
+    DependencyProperty.RegisterAttached("$property$", 
+                                        typeof($type$), 
+                                        typeof($ownerclass$), 
+                                        new PropertyMetadata($defaultvalue$, On$property$Changed));
+
+/// <summary>
+/// $property$ changed handler. 
+/// </summary>
+/// <param name="d">$targetclass$ that changed its $property$ attached property.</param>
+/// <param name="e">DependencyPropertyChangedEventArgs with the new and old value.</param> 
+private static void On$property$Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+    var source = d as $targetclass$; 
+    if (source != null) { 
+       var value = ($type$)e.NewValue;
+       //TODO: Handle new value. 
+    }
+}
+
+/// <summary>
+/// Gets the value of the $property$ attached property from the specified $targetclass$.
+/// </summary>
+public static $type$ Get$property$(DependencyObject obj)
+{
+    return ($type$)obj.GetValue($property$Property);
+}
+
+
+/// <summary>
+/// Sets the value of the $property$ attached property to the specified $targetclass$.
+/// </summary>
+/// <param name="obj">The object on which to set the $property$ attached property.</param>
+/// <param name="value">The property value to set.</param>
+public static void Set$property$(DependencyObject obj, $type$ value)
+{
+    obj.SetValue($property$Property, value);
+}
+ 
+#endregion $property$ Attached Property
+
+$end$]]>
+            </Code>
+
+        </Snippet>
+
+    </CodeSnippet>
+
+</CodeSnippets>
+

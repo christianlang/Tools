@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DelegateCommand</Title>
+      <Shortcut>delcom</Shortcut>
+      <Description>Code snippet for delegate command declaration and instantiating</Description>
+      <Author>Loek van den Ouweland</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Object type for CommandParamater</ToolTip>
+          <Default>object</Default>
+        </Literal>
+        <Literal>
+          <ID>action</ID>
+          <ToolTip>What the command does</ToolTip>
+          <Default>AddItem</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+
+        public DelegateCommand<$type$> $action$Command { get; set; }
+        
+        protected void Instantiate$action$Command()
+        {
+            $action$Command = new DelegateCommand<$type$>(o =>
+            {
+                // code to execute $action$ goes here...
+            }, o =>
+            {
+                return o != null ;
+            });
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

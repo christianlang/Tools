@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>clsEmployee</Title>
+      <Shortcut>clsEmployee</Shortcut>
+      <Description>Employee class</Description>
+      <Author>Fons Sonnemans</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[public class Employee {
+
+	private string _name;
+	private double _salary;
+
+	public Employee() {
+	}
+
+	public Employee(string name, double salary) {
+		this.Name = name;
+		this.Salary = salary;
+	}
+
+	public string Name {
+		get {
+			return _name;
+		}
+		set {
+			_name = value;
+		}
+	}
+
+	public void RaiseSalary(double percentage) {
+		this.Salary += Salary * (percentage / 100);
+	}
+
+	public double Salary {
+		get {
+			return _salary;
+		}
+		set {
+			_salary = value;
+		}
+	}
+
+	public override string ToString() {
+		return string.Format("Employee Name = {0}, Salary = {1}", this.Name, this.Salary);
+	}
+}
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
