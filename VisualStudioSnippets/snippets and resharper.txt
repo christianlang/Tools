@@ -1,0 +1,6 @@
+snippets copied to 
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC#\Snippets\1033\Visual C#
+will not be imported in resharper.
+
+You can use resharpers template editor to add them one at the time or disable Resharpers intellisense:
+Resharper > Options > Intellisense > General > Check "Visual Studio"
